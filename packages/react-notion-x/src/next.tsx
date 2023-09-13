@@ -1,9 +1,9 @@
-import * as React from 'react'
+import React, { FC, memo } from 'react'
 
 import isEqual from 'react-fast-compare'
 
-export const wrapNextImage = (NextImage: any): React.FC<any> => {
-  return React.memo(function ReactNotionXNextImage({
+export const wrapNextImage = (NextImage: any): FC<any> => {
+  return memo(function ReactNotionXNextImage({
     src,
     alt,
 
@@ -37,7 +37,7 @@ export const wrapNextImage = (NextImage: any): React.FC<any> => {
   }, isEqual)
 }
 
-export const wrapNextLink = (NextLink: any): React.FC<any> =>
+export const wrapNextLink = (NextLink: any): FC<any> =>
   function ReactNotionXNextLink({
     href,
     as,

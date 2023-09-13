@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, memo } from 'react'
 
 import { Block, Decoration } from 'notion-types'
 import { getBlockTitle } from 'notion-utils'
@@ -8,7 +8,7 @@ import { cs } from '../utils'
 import { PageIcon } from './page-icon'
 import { Text } from './text'
 
-export const PageTitleImpl: React.FC<{
+export const PageTitleImpl: FC<{
   block: Block
   className?: string
   defaultIcon?: string
@@ -62,4 +62,4 @@ export const PageTitleImpl: React.FC<{
   )
 }
 
-export const PageTitle = React.memo(PageTitleImpl)
+export const PageTitle = memo(PageTitleImpl)

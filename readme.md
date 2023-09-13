@@ -10,20 +10,22 @@
 
 ## Contents
 
-- [Advice](#advice)
-- [Features](#features)
-- [Usage](#usage)
-- [Styles](#styles)
-- [Optional Components](#optional-components)
-- [Private Pages](#private-pages)
-- [Next.js Examples](#nextjs-examples)
-- [Packages](#packages)
-- [Supported Blocks](#supported-blocks)
-- [Performance](#performance)
-- [Related](#related)
-- [Contributing](#contributing)
-- [License](#license)
-- [Sponsor](#sponsor)
+- [React Notion X](#react-notion-x)
+  - [Contents](#contents)
+  - [Advice](#advice)
+  - [Features](#features)
+  - [Usage](#usage)
+  - [Styles](#styles)
+  - [Optional Components](#optional-components)
+  - [Private Pages](#private-pages)
+  - [Next.js Examples](#nextjs-examples)
+  - [Packages](#packages)
+  - [Supported Blocks](#supported-blocks)
+  - [Performance](#performance)
+  - [Related](#related)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Sponsor](#sponsor)
 
 ## Advice
 
@@ -59,7 +61,7 @@ const recordMap = await notion.getPage('067dd719a912471ea9a3ac10710e7fdf')
 Once you have the data for a Notion page, you can render it via React:
 
 ```tsx
-import * as React from 'react'
+import React from 'react'
 import { NotionRenderer } from 'react-notion-x'
 
 export default ({ recordMap }) => (

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 
 import { FileBlock } from 'notion-types'
 
@@ -7,7 +7,7 @@ import { FileIcon } from '../icons/file-icon'
 import { cs } from '../utils'
 import { Text } from './text'
 
-export const File: React.FC<{
+export const File: FC<{
   block: FileBlock
   className?: string
 }> = ({ block, className }) => {

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, memo } from 'react'
 
 import { CollectionViewProps } from '../types'
 import { CollectionViewBoard } from './collection-view-board'
@@ -6,7 +6,7 @@ import { CollectionViewGallery } from './collection-view-gallery'
 import { CollectionViewList } from './collection-view-list'
 import { CollectionViewTable } from './collection-view-table'
 
-export const CollectionViewImpl: React.FC<CollectionViewProps> = (props) => {
+export const CollectionViewImpl: FC<CollectionViewProps> = (props) => {
   const { collectionView } = props
 
   switch (collectionView.type) {
@@ -28,4 +28,4 @@ export const CollectionViewImpl: React.FC<CollectionViewProps> = (props) => {
   }
 }
 
-export const CollectionView = React.memo(CollectionViewImpl)
+export const CollectionView = memo(CollectionViewImpl)

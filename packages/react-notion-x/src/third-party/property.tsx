@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, memo, useMemo } from 'react'
 
 import * as types from 'notion-types'
 import format from 'date-fns/format/index.js'
@@ -30,7 +30,7 @@ export interface IPropertyProps {
  * This corresponds to rendering the content of a single cell in a table.
  * Property rendering is re-used across all the different types of collection views.
  */
-export const Property: React.FC<IPropertyProps> = (props) => {
+export const Property: FC<IPropertyProps> = (props) => {
   const { components } = useNotionContext()
 
   if (components.Property) {
@@ -40,7 +40,7 @@ export const Property: React.FC<IPropertyProps> = (props) => {
   }
 }
 
-export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
+export const PropertyImpl: FC<IPropertyProps> = (props) => {
   const { components, mapImageUrl, mapPageUrl } = useNotionContext()
   const {
     schema,
@@ -51,7 +51,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     linkToTitlePage = true
   } = props
 
-  const renderTextValue = React.useMemo(
+  const renderTextValue = useMemo(
     () =>
       function TextProperty() {
         return <Text value={data} block={block} />
@@ -59,7 +59,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block, data]
   )
 
-  const renderDateValue = React.useMemo(
+  const renderDateValue = useMemo(
     () =>
       function DateProperty() {
         return <Text value={data} block={block} />
@@ -67,7 +67,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block, data]
   )
 
-  const renderRelationValue = React.useMemo(
+  const renderRelationValue = useMemo(
     () =>
       function RelationProperty() {
         return <Text value={data} block={block} />
@@ -75,7 +75,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block, data]
   )
 
-  const renderFormulaValue = React.useMemo(
+  const renderFormulaValue = useMemo(
     () =>
       function FormulaProperty() {
         let content: FormulaResult | null
@@ -103,7 +103,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block?.properties, collection?.schema, schema]
   )
 
-  const renderTitleValue = React.useMemo(
+  const renderTitleValue = useMemo(
     () =>
       function FormulaTitle() {
         if (block && linkToTitlePage) {
@@ -122,7 +122,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block, components, data, linkToTitlePage, mapPageUrl]
   )
 
-  const renderPersonValue = React.useMemo(
+  const renderPersonValue = useMemo(
     () =>
       function PersonProperty() {
         // console.log('person', schema, data)
@@ -131,7 +131,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block, data]
   )
 
-  const renderFileValue = React.useMemo(
+  const renderFileValue = useMemo(
     () =>
       function FileProperty() {
         // TODO: assets should be previewable via image-zoom
@@ -158,7 +158,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block, components, data, mapImageUrl]
   )
 
-  const renderCheckboxValue = React.useMemo(
+  const renderCheckboxValue = useMemo(
     () =>
       function CheckboxProperty() {
         const isChecked = data && data[0][0] === 'Yes'
@@ -173,7 +173,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [data, schema]
   )
 
-  const renderUrlValue = React.useMemo(
+  const renderUrlValue = useMemo(
     () =>
       function UrlProperty() {
         // TODO: refactor to less hacky solution
@@ -203,7 +203,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block, data, inline]
   )
 
-  const renderEmailValue = React.useMemo(
+  const renderEmailValue = useMemo(
     () =>
       function EmailProperty() {
         return <Text value={data} linkProtocol='mailto' block={block} />
@@ -211,7 +211,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block, data]
   )
 
-  const renderPhoneNumberValue = React.useMemo(
+  const renderPhoneNumberValue = useMemo(
     () =>
       function PhoneNumberProperty() {
         return <Text value={data} linkProtocol='tel' block={block} />
@@ -219,7 +219,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block, data]
   )
 
-  const renderNumberValue = React.useMemo(
+  const renderNumberValue = useMemo(
     () =>
       function NumberProperty() {
         const value = parseFloat(data[0][0] || '0')
@@ -276,7 +276,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block, data, schema]
   )
 
-  const renderCreatedTimeValue = React.useMemo(
+  const renderCreatedTimeValue = useMemo(
     () =>
       function CreatedTimeProperty() {
         return format(new Date(block?.created_time), 'MMM d, YYY hh:mm aa')
@@ -284,7 +284,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
     [block?.created_time]
   )
 
-  const renderLastEditedTimeValue = React.useMemo(
+  const renderLastEditedTimeValue = useMemo(
     () =>
       function LastEditedTimeProperty() {
         return format(new Date(block?.last_edited_time), 'MMM d, YYY hh:mm aa')
@@ -477,4 +477,4 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
   )
 }
 
-export const PropertyImplMemo = React.memo(PropertyImpl)
+export const PropertyImplMemo = memo(PropertyImpl)

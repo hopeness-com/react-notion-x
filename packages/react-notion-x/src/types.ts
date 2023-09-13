@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { ElementType, FC, ReactNode } from 'react'
 
 import * as types from 'notion-types'
 
@@ -13,7 +13,7 @@ export type SearchNotionFn = (
 
 export type ComponentOverrideFn = (
   props: any,
-  defaultValueFn: () => React.ReactNode
+  defaultValueFn: () => ReactNode
 ) => any
 
 export interface NotionComponents {
@@ -21,7 +21,7 @@ export interface NotionComponents {
   Image: any
   Link: any
   PageLink: any
-  Checkbox: React.FC<{ isChecked: boolean; blockId: string }>
+  Checkbox: FC<{ isChecked: boolean; blockId: string }>
 
   // blocks
   Code: any
@@ -84,7 +84,7 @@ export interface CollectionCardProps {
 }
 export interface CollectionGroupProps {
   collection: types.Collection
-  collectionViewComponent: React.ElementType
+  collectionViewComponent: ElementType
   collectionGroup: any
   hidden: boolean
   schema: any

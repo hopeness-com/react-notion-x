@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 
 import { PageBlock } from 'notion-types'
 
@@ -11,7 +11,7 @@ import { getCollectionGroups } from './collection-utils'
 
 const defaultBlockIds = []
 
-export const CollectionViewGallery: React.FC<CollectionViewProps> = ({
+export const CollectionViewGallery: FC<CollectionViewProps> = ({
   collection,
   collectionView,
   collectionData

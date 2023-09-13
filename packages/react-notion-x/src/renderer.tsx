@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, ReactNode, useMemo } from 'react'
 
 import mediumZoom from '@fisch0920/medium-zoom'
 import { ExtendedRecordMap } from 'notion-types'
@@ -12,7 +12,7 @@ import {
   SearchNotionFn
 } from './types'
 
-export const NotionRenderer: React.FC<{
+export const NotionRenderer: FC<{
   recordMap: ExtendedRecordMap
   components?: Partial<NotionComponents>
 
@@ -47,13 +47,13 @@ export const NotionRenderer: React.FC<{
   className?: string
   bodyClassName?: string
 
-  header?: React.ReactNode
-  footer?: React.ReactNode
-  pageHeader?: React.ReactNode
-  pageFooter?: React.ReactNode
-  pageTitle?: React.ReactNode
-  pageAside?: React.ReactNode
-  pageCover?: React.ReactNode
+  header?: ReactNode
+  footer?: ReactNode
+  pageHeader?: ReactNode
+  pageFooter?: ReactNode
+  pageTitle?: ReactNode
+  pageAside?: ReactNode
+  pageCover?: ReactNode
 
   blockId?: string
   hideBlockId?: boolean
@@ -83,7 +83,7 @@ export const NotionRenderer: React.FC<{
   defaultPageCoverPosition,
   ...rest
 }) => {
-  const zoom = React.useMemo(
+  const zoom = useMemo(
     () =>
       typeof window !== 'undefined' &&
       mediumZoom({
@@ -124,11 +124,11 @@ export const NotionRenderer: React.FC<{
   )
 }
 
-export const NotionBlockRenderer: React.FC<{
+export const NotionBlockRenderer: FC<{
   className?: string
   bodyClassName?: string
-  header?: React.ReactNode
-  footer?: React.ReactNode
+  header?: ReactNode
+  footer?: ReactNode
   disableHeader?: boolean
 
   blockId?: string

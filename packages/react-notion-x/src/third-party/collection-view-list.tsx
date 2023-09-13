@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 
 import { PageBlock } from 'notion-types'
 
@@ -10,7 +10,7 @@ import { Property } from './property'
 
 const defaultBlockIds = []
 
-export const CollectionViewList: React.FC<CollectionViewProps> = ({
+export const CollectionViewList: FC<CollectionViewProps> = ({
   collection,
   collectionView,
   collectionData

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 
 import { ImageBlock } from 'notion-types'
 import { getTextContent } from 'notion-utils'
@@ -9,7 +9,7 @@ import { CollectionCardProps } from '../types'
 import { cs } from '../utils'
 import { Property } from './property'
 
-export const CollectionCard: React.FC<CollectionCardProps> = ({
+export const CollectionCard: FC<CollectionCardProps> = ({
   collection,
   block,
   cover,

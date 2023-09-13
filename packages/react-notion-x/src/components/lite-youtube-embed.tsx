@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { CSSProperties, FC, useCallback, useMemo, useState } from 'react'
 
 import { cs } from '../utils'
 
@@ -10,7 +10,7 @@ const qs = (params: Record<string, string>) => {
     .join('&')
 }
 
-export const LiteYouTubeEmbed: React.FC<{
+export const LiteYouTubeEmbed: FC<{
   id: string
   defaultPlay?: boolean
   mute?: boolean
@@ -19,7 +19,7 @@ export const LiteYouTubeEmbed: React.FC<{
   alt?: string
   params?: Record<string, string>
   adLinksPreconnect?: boolean
-  style?: React.CSSProperties
+  style?: CSSProperties
   className?: string
 }> = ({
   id,
@@ -34,7 +34,7 @@ export const LiteYouTubeEmbed: React.FC<{
   className
 }) => {
   const muteParam = mute || defaultPlay ? '1' : '0' // Default play must be muted
-  const queryString = React.useMemo(
+  const queryString = useMemo(
     () => qs({ autoplay: '1', mute: muteParam, ...params }),
     [muteParam, params]
   )
@@ -45,21 +45,21 @@ export const LiteYouTubeEmbed: React.FC<{
   const ytUrl = 'https://www.youtube-nocookie.com'
   const iframeSrc = `${ytUrl}/embed/${id}?${queryString}`
 
-  const [isPreconnected, setIsPreconnected] = React.useState(false)
-  const [iframeInitialized, setIframeInitialized] = React.useState(defaultPlay)
-  const [isIframeLoaded, setIsIframeLoaded] = React.useState(false)
+  const [isPreconnected, setIsPreconnected] = useState(false)
+  const [iframeInitialized, setIframeInitialized] = useState(defaultPlay)
+  const [isIframeLoaded, setIsIframeLoaded] = useState(false)
 
-  const warmConnections = React.useCallback(() => {
+  const warmConnections = useCallback(() => {
     if (isPreconnected) return
     setIsPreconnected(true)
   }, [isPreconnected])
 
-  const onLoadIframe = React.useCallback(() => {
+  const onLoadIframe = useCallback(() => {
     if (iframeInitialized) return
     setIframeInitialized(true)
   }, [iframeInitialized])
 
-  const onIframeLoaded = React.useCallback(() => {
+  const onIframeLoaded = useCallback(() => {
     setIsIframeLoaded(true)
   }, [])
 

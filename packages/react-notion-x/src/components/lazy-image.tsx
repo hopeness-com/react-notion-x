@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { CSSProperties, FC, useCallback, useMemo, useRef } from 'react'
 
 import { normalizeUrl } from 'notion-utils'
 import { ImageState, LazyImageFull } from 'react-lazy-images'
@@ -9,11 +9,11 @@ import { cs } from '../utils'
 /**
  * Progressive, lazy images modeled after Medium's LQIP technique.
  */
-export const LazyImage: React.FC<{
+export const LazyImage: FC<{
   src?: string
   alt?: string
   className?: string
-  style?: React.CSSProperties
+  style?: CSSProperties
   height?: number
   zoomable?: boolean
   priority?: boolean
@@ -30,13 +30,13 @@ export const LazyImage: React.FC<{
   const { recordMap, zoom, previewImages, forceCustomImages, components } =
     useNotionContext()
 
-  const zoomRef = React.useRef(zoom ? zoom.clone() : null)
+  const zoomRef = useRef(zoom ? zoom.clone() : null)
   const previewImage = previewImages
     ? recordMap?.preview_images?.[src] ??
       recordMap?.preview_images?.[normalizeUrl(src)]
     : null
 
-  const onLoad = React.useCallback(
+  const onLoad = useCallback(
     (e: any) => {
       if (zoomable && (e.target.src || e.target.srcset)) {
         if (zoomRef.current) {
@@ -47,7 +47,7 @@ export const LazyImage: React.FC<{
     [zoomRef, zoomable]
   )
 
-  const attachZoom = React.useCallback(
+  const attachZoom = useCallback(
     (image: any) => {
       if (zoomRef.current && image) {
         ;(zoomRef.current as any).attach(image)
@@ -56,7 +56,7 @@ export const LazyImage: React.FC<{
     [zoomRef]
   )
 
-  const attachZoomRef = React.useMemo(
+  const attachZoomRef = useMemo(
     () => (zoomable ? attachZoom : undefined),
     [zoomable, attachZoom]
   )
@@ -87,10 +87,10 @@ export const LazyImage: React.FC<{
       <LazyImageFull src={src} {...rest} experimentalDecode={true}>
         {({ imageState, ref }) => {
           const isLoaded = imageState === ImageState.LoadSuccess
-          const wrapperStyle: React.CSSProperties = {
+          const wrapperStyle: CSSProperties = {
             width: '100%'
           }
-          const imgStyle: React.CSSProperties = {}
+          const imgStyle: CSSProperties = {}
 
           if (height) {
             wrapperStyle.height = height

@@ -1,17 +1,17 @@
-import * as React from 'react'
+import React, { FC, ReactNode, useEffect, useMemo } from 'react'
 
 import throttle from 'lodash.throttle'
 import { TableOfContentsEntry, uuidToId } from 'notion-utils'
 
 import { cs } from '../utils'
 
-export const PageAside: React.FC<{
+export const PageAside: FC<{
   toc: Array<TableOfContentsEntry>
   activeSection: string | null
   setActiveSection: (activeSection: string | null) => unknown
   hasToc: boolean
   hasAside: boolean
-  pageAside?: React.ReactNode
+  pageAside?: ReactNode
   className?: string
 }> = ({
   toc,
@@ -23,7 +23,7 @@ export const PageAside: React.FC<{
   className
 }) => {
   const throttleMs = 100
-  const actionSectionScrollSpy = React.useMemo(
+  const actionSectionScrollSpy = useMemo(
     () =>
       throttle(() => {
         const sections = document.getElementsByClassName('notion-h')
@@ -64,7 +64,7 @@ export const PageAside: React.FC<{
     ]
   )
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!hasToc) {
       return
     }

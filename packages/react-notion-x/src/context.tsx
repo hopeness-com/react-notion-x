@@ -1,4 +1,11 @@
-import * as React from 'react'
+import React, {
+  FC,
+  ReactNode,
+  createContext,
+  memo,
+  useContext,
+  useMemo
+} from 'react'
 
 import { ExtendedRecordMap } from 'notion-types'
 
@@ -75,12 +82,12 @@ export interface PartialNotionContext {
   zoom?: any
 }
 
-const DefaultLink: React.FC = (props) => (
+const DefaultLink: FC = (props) => (
   <a target='_blank' rel='noopener noreferrer' {...props} />
 )
-const DefaultLinkMemo = React.memo(DefaultLink)
-const DefaultPageLink: React.FC = (props) => <a {...props} />
-const DefaultPageLinkMemo = React.memo(DefaultPageLink)
+const DefaultLinkMemo = memo(DefaultLink)
+const DefaultPageLink: FC = (props) => <a {...props} />
+const DefaultPageLinkMemo = memo(DefaultPageLink)
 
 const DefaultEmbed = (props) => <AssetWrapper {...props} />
 const DefaultHeader = Header
@@ -98,9 +105,9 @@ const dummyComponent = (name: string) => () => {
   return null
 }
 
-// TODO: should we use React.memo here?
+// TODO: should we use memo here?
 // https://reactjs.org/docs/react-api.html#reactmemo
-const dummyOverrideFn = (_: any, defaultValueFn: () => React.ReactNode) =>
+const dummyOverrideFn = (_: any, defaultValueFn: () => ReactNode) =>
   defaultValueFn()
 
 const defaultComponents: NotionComponents = {
@@ -176,9 +183,9 @@ const defaultNotionContext: NotionContext = {
   zoom: null
 }
 
-const ctx = React.createContext<NotionContext>(defaultNotionContext)
+const ctx = createContext<NotionContext>(defaultNotionContext)
 
-export const NotionContextProvider: React.FC<PartialNotionContext> = ({
+export const NotionContextProvider: FC<PartialNotionContext> = ({
   components: themeComponents = {},
   children,
   mapPageUrl,
@@ -192,7 +199,7 @@ export const NotionContextProvider: React.FC<PartialNotionContext> = ({
     }
   }
 
-  const wrappedThemeComponents = React.useMemo(
+  const wrappedThemeComponents = useMemo(
     () => ({
       ...themeComponents
     }),
@@ -215,7 +222,7 @@ export const NotionContextProvider: React.FC<PartialNotionContext> = ({
     }
   }
 
-  const value = React.useMemo(
+  const value = useMemo(
     () => ({
       ...defaultNotionContext,
       ...rest,
@@ -233,5 +240,5 @@ export const NotionContextProvider: React.FC<PartialNotionContext> = ({
 export const NotionContextConsumer = ctx.Consumer
 
 export const useNotionContext = (): NotionContext => {
-  return React.useContext(ctx)
+  return useContext(ctx)
 }

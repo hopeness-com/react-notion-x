@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { Component, createRef } from 'react'
 
 import * as types from 'notion-types'
 import throttle from 'lodash.throttle'
@@ -11,7 +11,7 @@ import { SearchIcon } from '../icons/search-icon'
 import { cs } from '../utils'
 import { PageTitle } from './page-title'
 
-export class SearchDialog extends React.Component<{
+export class SearchDialog extends Component<{
   isOpen: boolean
   rootBlockId: string
   onClose: () => void
@@ -19,7 +19,7 @@ export class SearchDialog extends React.Component<{
 }> {
   constructor(props) {
     super(props)
-    this._inputRef = React.createRef()
+    this._inputRef = createRef()
   }
 
   state = {

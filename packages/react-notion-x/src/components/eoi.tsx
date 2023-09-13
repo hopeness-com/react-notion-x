@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, ReactNode } from 'react'
 
 import { Block } from 'notion-types'
 
@@ -8,7 +8,7 @@ import { cs, formatNotionDateTime } from '../utils'
 import { MentionPreviewCard } from './mention-preview-card'
 
 // External Object Instance
-export const EOI: React.FC<{
+export const EOI: FC<{
   block: Block
   inline?: boolean
   className?: string
@@ -24,7 +24,7 @@ export const EOI: React.FC<{
   const lastUpdatedAt = attributes.find((attr) => attr.id === 'updated_at')
     ?.values[0]
   const lastUpdated = lastUpdatedAt ? formatNotionDateTime(lastUpdatedAt) : null
-  let externalImage: React.ReactNode
+  let externalImage: ReactNode
 
   switch (domain) {
     case 'github.com':

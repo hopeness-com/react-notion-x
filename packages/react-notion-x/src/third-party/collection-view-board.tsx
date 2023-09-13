@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, useMemo } from 'react'
 
 import { PageBlock } from 'notion-types'
 
@@ -11,7 +11,7 @@ import { CollectionGroup } from './collection-group'
 import { getCollectionGroups } from './collection-utils'
 import { Property } from './property'
 
-export const CollectionViewBoard: React.FC<CollectionViewProps> = ({
+export const CollectionViewBoard: FC<CollectionViewProps> = ({
   collection,
   collectionView,
   collectionData,
@@ -68,7 +68,7 @@ function Board({ collectionView, collectionData, collection, padding }) {
 
   const boardGroupBy = collectionView?.format?.board_columns_by?.groupBy
 
-  const boardStyle = React.useMemo(
+  const boardStyle = useMemo(
     () => ({
       paddingLeft: padding
     }),

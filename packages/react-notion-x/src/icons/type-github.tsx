@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React, { SVGProps } from 'react'
 
-function SvgTypeGitHub(props: React.SVGProps<SVGSVGElement>) {
+function SvgTypeGitHub(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox='0 0 260 260' {...props}>
       <g>

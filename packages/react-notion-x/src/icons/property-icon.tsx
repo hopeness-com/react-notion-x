@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { FC } from 'react'
 
 import { PropertyType } from 'notion-types'
 
@@ -47,10 +47,7 @@ const iconMap = {
   last_edited_by: Person2Icon
 }
 
-export const PropertyIcon: React.FC<PropertyIconProps> = ({
-  type,
-  ...rest
-}) => {
+export const PropertyIcon: FC<PropertyIconProps> = ({ type, ...rest }) => {
   const icon = iconMap[type] as any
   if (!icon) return null
 

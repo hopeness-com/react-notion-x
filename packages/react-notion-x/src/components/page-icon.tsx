@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, memo } from 'react'
 
 import { Block, CalloutBlock, PageBlock } from 'notion-types'
 import { getBlockIcon, getBlockTitle } from 'notion-utils'
@@ -17,7 +17,7 @@ const isIconBlock = (value: Block): value is PageBlock | CalloutBlock => {
   )
 }
 
-export const PageIconImpl: React.FC<{
+export const PageIconImpl: FC<{
   block: Block
   className?: string
   inline?: boolean
@@ -103,4 +103,4 @@ export const PageIconImpl: React.FC<{
   )
 }
 
-export const PageIcon = React.memo(PageIconImpl)
+export const PageIcon = memo(PageIconImpl)

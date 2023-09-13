@@ -1,4 +1,12 @@
-import * as React from 'react'
+import React, {
+  FC,
+  Fragment,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState
+} from 'react'
 
 import * as types from 'notion-types'
 import { getPageBreadcrumbs } from 'notion-utils'
@@ -11,7 +19,7 @@ import { cs } from '../utils'
 import { PageIcon } from './page-icon'
 import { SearchDialog } from './search-dialog'
 
-export const Header: React.FC<{
+export const Header: FC<{
   block: types.CollectionViewPageBlock | types.PageBlock
 }> = ({ block }) => {
   return (
@@ -24,13 +32,13 @@ export const Header: React.FC<{
   )
 }
 
-export const Breadcrumbs: React.FC<{
+export const Breadcrumbs: FC<{
   block: types.Block
   rootOnly?: boolean
 }> = ({ block, rootOnly = false }) => {
   const { recordMap, mapPageUrl, components } = useNotionContext()
 
-  const breadcrumbs = React.useMemo(() => {
+  const breadcrumbs = useMemo(() => {
     const breadcrumbs = getPageBreadcrumbs(recordMap, block.id)
     if (rootOnly) {
       return [breadcrumbs[0]].filter(Boolean)
@@ -58,7 +66,7 @@ export const Breadcrumbs: React.FC<{
         }
 
         return (
-          <React.Fragment key={breadcrumb.pageId}>
+          <Fragment key={breadcrumb.pageId}>
             <componentMap.pageLink
               className={cs('breadcrumb', breadcrumb.active && 'active')}
               {...pageLinkProps}
@@ -75,32 +83,32 @@ export const Breadcrumbs: React.FC<{
             {index < breadcrumbs.length - 1 && (
               <span className='spacer'>/</span>
             )}
-          </React.Fragment>
+          </Fragment>
         )
       })}
     </div>
   )
 }
 
-export const Search: React.FC<{
+export const Search: FC<{
   block: types.Block
   search?: SearchNotionFn
-  title?: React.ReactNode
+  title?: ReactNode
 }> = ({ block, search, title = 'Search' }) => {
   const { searchNotion, rootPageId, isShowingSearch, onHideSearch } =
     useNotionContext()
   const onSearchNotion = search || searchNotion
 
-  const [isSearchOpen, setIsSearchOpen] = React.useState(isShowingSearch)
-  React.useEffect(() => {
+  const [isSearchOpen, setIsSearchOpen] = useState(isShowingSearch)
+  useEffect(() => {
     setIsSearchOpen(isShowingSearch)
   }, [isShowingSearch])
 
-  const onOpenSearch = React.useCallback(() => {
+  const onOpenSearch = useCallback(() => {
     setIsSearchOpen(true)
   }, [])
 
-  const onCloseSearch = React.useCallback(() => {
+  const onCloseSearch = useCallback(() => {
     setIsSearchOpen(false)
     if (onHideSearch) {
       onHideSearch()

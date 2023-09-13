@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, ReactNode, useState } from 'react'
 
 import * as types from 'notion-types'
 import {
@@ -32,18 +32,18 @@ interface BlockProps {
   className?: string
   bodyClassName?: string
 
-  header?: React.ReactNode
-  footer?: React.ReactNode
-  pageHeader?: React.ReactNode
-  pageFooter?: React.ReactNode
-  pageTitle?: React.ReactNode
-  pageAside?: React.ReactNode
-  pageCover?: React.ReactNode
+  header?: ReactNode
+  footer?: ReactNode
+  pageHeader?: ReactNode
+  pageFooter?: ReactNode
+  pageTitle?: ReactNode
+  pageAside?: ReactNode
+  pageCover?: ReactNode
 
   hideBlockId?: boolean
   disableHeader?: boolean
 
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 // TODO: use react state instead of a global for this
@@ -53,7 +53,7 @@ const tocIndentLevelCache: {
 
 const pageCoverStyleCache: Record<string, object> = {}
 
-export const Block: React.FC<BlockProps> = (props) => {
+export const Block: FC<BlockProps> = (props) => {
   const ctx = useNotionContext()
   const {
     components,
@@ -69,7 +69,7 @@ export const Block: React.FC<BlockProps> = (props) => {
     defaultPageCoverPosition
   } = ctx
 
-  const [activeSection, setActiveSection] = React.useState(null)
+  const [activeSection, setActiveSection] = useState(null)
 
   const {
     block,
@@ -425,7 +425,7 @@ export const Block: React.FC<BlockProps> = (props) => {
     case 'bulleted_list':
     // fallthrough
     case 'numbered_list': {
-      const wrapList = (content: React.ReactNode, start?: number) =>
+      const wrapList = (content: ReactNode, start?: number) =>
         block.type === 'bulleted_list' ? (
           <ul className={cs('notion-list', 'notion-list-disc', blockId)}>
             {content}

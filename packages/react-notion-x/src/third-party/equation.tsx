@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 
 import Katex from '@matejmazur/react-katex'
 import { EquationBlock } from 'notion-types'
@@ -12,7 +12,7 @@ const katexSettings = {
   strict: false
 }
 
-export const Equation: React.FC<{
+export const Equation: FC<{
   block: EquationBlock
   math?: string
   inline?: boolean

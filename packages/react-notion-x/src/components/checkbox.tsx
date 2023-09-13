@@ -1,8 +1,8 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 
 import CheckIcon from '../icons/check'
 
-export const Checkbox: React.FC<{
+export const Checkbox: FC<{
   isChecked: boolean
   blockId: string | undefined
 }> = ({ isChecked }) => {

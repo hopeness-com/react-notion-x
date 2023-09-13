@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { CSSProperties, FC, useMemo } from 'react'
 
 import { useNotionContext } from '../context'
 import { CollectionViewProps } from '../types'
@@ -10,7 +10,7 @@ import { Property } from './property'
 
 const defaultBlockIds = []
 
-export const CollectionViewTable: React.FC<CollectionViewProps> = ({
+export const CollectionViewTable: FC<CollectionViewProps> = ({
   collection,
   collectionView,
   collectionData,
@@ -64,7 +64,7 @@ export const CollectionViewTable: React.FC<CollectionViewProps> = ({
 function Table({ blockIds = [], collection, collectionView, width, padding }) {
   const { recordMap, linkTableTitleProperties } = useNotionContext()
 
-  const tableStyle = React.useMemo(
+  const tableStyle = useMemo(
     () => ({
       width,
       maxWidth: width
@@ -72,7 +72,7 @@ function Table({ blockIds = [], collection, collectionView, width, padding }) {
     [width]
   )
 
-  const tableViewStyle = React.useMemo(
+  const tableViewStyle = useMemo(
     () => ({
       paddingLeft: padding,
       paddingRight: padding
@@ -104,7 +104,7 @@ function Table({ blockIds = [], collection, collectionView, width, padding }) {
                 {properties.map((p) => {
                   const schema = collection.schema?.[p.property]
                   const isTitle = p.property === 'title'
-                  const style: React.CSSProperties = {}
+                  const style: CSSProperties = {}
 
                   if (p.width) {
                     style.width = p.width
@@ -141,7 +141,7 @@ function Table({ blockIds = [], collection, collectionView, width, padding }) {
                     const block = recordMap.block[blockId]?.value
                     const data = block?.properties?.[p.property]
                     const isTitle = p.property === 'title'
-                    const style: React.CSSProperties = {}
+                    const style: CSSProperties = {}
 
                     if (p.width) {
                       style.width = p.width

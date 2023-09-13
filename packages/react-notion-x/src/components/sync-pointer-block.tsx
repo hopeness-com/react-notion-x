@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 
 import {
   Block as BlockType,
@@ -7,7 +7,7 @@ import {
 
 import { NotionBlockRenderer } from '../renderer'
 
-export const SyncPointerBlock: React.FC<{
+export const SyncPointerBlock: FC<{
   block: BlockType
   level: number
 }> = ({ block, level }) => {

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, useCallback, useEffect, useRef, useState } from 'react'
 
 import copyToClipboard from 'clipboard-copy'
 import { CodeBlock } from 'notion-types'
@@ -19,13 +19,13 @@ import { useNotionContext } from '../context'
 import CopyIcon from '../icons/copy'
 import { cs } from '../utils'
 
-export const Code: React.FC<{
+export const Code: FC<{
   block: CodeBlock
   defaultLanguage?: string
   className?: string
 }> = ({ block, defaultLanguage = 'typescript', className }) => {
-  const [isCopied, setIsCopied] = React.useState(false)
-  const copyTimeout = React.useRef<number>()
+  const [isCopied, setIsCopied] = useState(false)
+  const copyTimeout = useRef<number>()
   const { recordMap } = useNotionContext()
   const content = getBlockTitle(block, recordMap)
   const language = (
@@ -33,8 +33,8 @@ export const Code: React.FC<{
   ).toLowerCase()
   const caption = block.properties.caption
 
-  const codeRef = React.useRef()
-  React.useEffect(() => {
+  const codeRef = useRef()
+  useEffect(() => {
     if (codeRef.current) {
       try {
         highlightElement(codeRef.current)
@@ -44,7 +44,7 @@ export const Code: React.FC<{
     }
   }, [codeRef])
 
-  const onClickCopyToClipboard = React.useCallback(() => {
+  const onClickCopyToClipboard = useCallback(() => {
     copyToClipboard(content)
     setIsCopied(true)
 

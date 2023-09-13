@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 
 import { PageBlock } from 'notion-types'
 
@@ -7,7 +7,7 @@ import { cs } from '../utils'
 import { CollectionColumnTitle } from './collection-column-title'
 import { Property } from './property'
 
-export const CollectionRow: React.FC<{
+export const CollectionRow: FC<{
   block: PageBlock
   pageHeader?: boolean
   className?: string

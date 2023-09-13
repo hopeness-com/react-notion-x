@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 
 import { BaseContentBlock, Block } from 'notion-types'
 import { parsePageId } from 'notion-utils'
@@ -10,7 +10,7 @@ import { Text } from './text'
 
 const urlStyle = { width: '100%' }
 
-export const AssetWrapper: React.FC<{
+export const AssetWrapper: FC<{
   blockId: string
   block: Block
 }> = ({ blockId, block }) => {

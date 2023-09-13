@@ -1,12 +1,12 @@
-import * as React from 'react'
+import React, { FC, useState } from 'react'
 
 import { Document, Page, pdfjs } from 'react-pdf'
 
 // ensure pdfjs can find its worker script regardless of how react-notion-x is bundled
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`
 
-export const Pdf: React.FC<{ file: string }> = ({ file, ...rest }) => {
-  const [numPages, setNumPages] = React.useState(null)
+export const Pdf: FC<{ file: string }> = ({ file, ...rest }) => {
+  const [numPages, setNumPages] = useState(null)
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages)

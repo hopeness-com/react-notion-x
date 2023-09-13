@@ -1,4 +1,12 @@
-import * as React from 'react'
+import React, {
+  CSSProperties,
+  FC,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState
+} from 'react'
 
 import * as types from 'notion-types'
 import {
@@ -22,7 +30,7 @@ import { PropertyImplMemo } from './property'
 
 const isServer = typeof window === 'undefined'
 
-export const Collection: React.FC<{
+export const Collection: FC<{
   block:
     | types.CollectionViewBlock
     | types.CollectionViewPageBlock
@@ -35,7 +43,7 @@ export const Collection: React.FC<{
    * collections, where `useNotionContext` returns a *different* context than for
    * the main bundle.
    *
-   * This is due to `React.createContext` being called in each bundle which includes
+   * This is due to `createContext` being called in each bundle which includes
    * `../context.ts`.
    *
    * To circumvent this issue, we're passing the context value directly to
@@ -43,7 +51,7 @@ export const Collection: React.FC<{
    */
   // console.log('Collection', Object.keys(recordMap.block).length)
 
-  const context: NotionContext = React.useMemo(
+  const context: NotionContext = useMemo(
     () => ({
       ...ctx
     }),
@@ -75,7 +83,7 @@ export const Collection: React.FC<{
   }
 }
 
-const CollectionViewBlock: React.FC<{
+const CollectionViewBlock: FC<{
   block: types.CollectionViewBlock | types.CollectionViewPageBlock
   className?: string
 }> = ({ block, className }) => {
@@ -83,8 +91,8 @@ const CollectionViewBlock: React.FC<{
   const { view_ids: viewIds } = block
   const collectionId = getBlockCollectionId(block, recordMap)
 
-  const [isMounted, setIsMounted] = React.useState(false)
-  React.useEffect(() => {
+  const [isMounted, setIsMounted] = useState(false)
+  useEffect(() => {
     setIsMounted(true)
   }, [])
 
@@ -98,7 +106,7 @@ const CollectionViewBlock: React.FC<{
       viewIds.find((id) => id === collectionState.collectionViewId)) ||
     defaultCollectionViewId
 
-  const onChangeView = React.useCallback(
+  const onChangeView = useCallback(
     (collectionViewId: string) => {
       console.log('change collection view', collectionViewId)
 
@@ -121,8 +129,8 @@ const CollectionViewBlock: React.FC<{
     recordMap.collection_query[collectionId]?.[collectionViewId]
   const parentPage = getBlockParentPage(block, recordMap)
 
-  const { width, padding } = React.useMemo(() => {
-    const style: React.CSSProperties = {}
+  const { width, padding } = useMemo(() => {
+    const style: CSSProperties = {}
 
     if (collectionView?.type !== 'table' && collectionView?.type !== 'board') {
       return {
@@ -222,7 +230,7 @@ const CollectionViewBlock: React.FC<{
   )
 }
 
-const CollectionViewTabs: React.FC<{
+const CollectionViewTabs: FC<{
   collectionViewId: string
   viewIds: string[]
   onChangeView: (viewId: string) => unknown
@@ -250,10 +258,10 @@ const CollectionViewTabs: React.FC<{
   )
 }
 
-const CollectionViewColumnDesc: React.FC<{
+const CollectionViewColumnDesc: FC<{
   collectionView: types.CollectionView
   className?: string
-  children?: React.ReactNode
+  children?: ReactNode
 }> = ({ collectionView, className, children, ...rest }) => {
   const { type } = collectionView
   const name =

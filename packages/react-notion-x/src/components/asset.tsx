@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { CSSProperties, FC } from 'react'
 
 import { BaseContentBlock, Block } from 'notion-types'
 import { getTextContent } from 'notion-utils'
@@ -26,7 +26,7 @@ const supportedAssetTypes = [
   'drive'
 ]
 
-export const Asset: React.FC<{
+export const Asset: FC<{
   block: BaseContentBlock
   children: any
   zoomable?: boolean
@@ -37,7 +37,7 @@ export const Asset: React.FC<{
     return null
   }
 
-  const style: React.CSSProperties = {
+  const style: CSSProperties = {
     position: 'relative',
     display: 'flex',
     justifyContent: 'center',
@@ -47,7 +47,7 @@ export const Asset: React.FC<{
     flexDirection: 'column'
   }
 
-  const assetStyle: React.CSSProperties = {}
+  const assetStyle: CSSProperties = {}
   // console.log('asset', block)
 
   if (block.format) {

@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React, { SVGProps } from 'react'
 
-function SvgCopy(props: React.SVGProps<SVGSVGElement>) {
+function SvgCopy(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       fill='currentColor'

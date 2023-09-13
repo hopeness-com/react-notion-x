@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { FC } from 'react'
 
 import { CollectionViewType } from 'notion-types'
 
@@ -21,7 +21,7 @@ const iconMap = {
   calendar: CollectionViewCalendarIcon
 }
 
-export const CollectionViewIcon: React.FC<CollectionViewIconProps> = ({
+export const CollectionViewIcon: FC<CollectionViewIconProps> = ({
   type,
   ...rest
 }) => {

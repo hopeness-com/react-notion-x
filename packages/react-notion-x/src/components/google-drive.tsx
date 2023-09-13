@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 
 import { GoogleDriveBlock } from 'notion-types'
 
@@ -6,7 +6,7 @@ import { useNotionContext } from '../context'
 import { cs } from '../utils'
 import { GracefulImage } from './graceful-image'
 
-export const GoogleDrive: React.FC<{
+export const GoogleDrive: FC<{
   block: GoogleDriveBlock
   className?: string
 }> = ({ block, className }) => {
