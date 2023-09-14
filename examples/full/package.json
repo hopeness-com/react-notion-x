@@ -13,25 +13,25 @@
     "deploy": "vercel deploy"
   },
   "dependencies": {
-    "@notionhq/client": "^1.0.4",
-    "classnames": "^2.3.1",
-    "got": "^12.0.2",
-    "lqip-modern": "^1.2.0",
-    "next": "^12.1.0",
+    "@notionhq/client": "^2.2.13",
+    "classnames": "^2.3.2",
+    "got": "^13.0.0",
+    "lqip-modern": "^2.0.0",
+    "next": "^13.4.19",
     "notion-client": "^6.16.0",
     "notion-compat": "^6.16.0",
     "notion-utils": "^6.16.0",
-    "p-map": "^5.3.0",
-    "p-memoize": "^6.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "p-map": "^6.0.0",
+    "p-memoize": "^7.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-notion-x": "^6.16.0",
     "react-tweet-embed": "^2.0.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^12.1.0",
-    "@types/node": "^16.11.2",
+    "@next/bundle-analyzer": "^13.4.19",
+    "@types/node": "^18.16.0",
     "cross-env": "^7.0.3",
-    "typescript": "^4.6.2"
+    "typescript": "^5.2.2"
   }
 }

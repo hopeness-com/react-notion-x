@@ -12,6 +12,6 @@
     "build"
   ],
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   }
 }

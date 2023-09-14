@@ -9,15 +9,15 @@
     "eject": "GENERATE_SOURCEMAP=false react-scripts eject"
   },
   "dependencies": {
-    "@types/node": "^16.11.26",
-    "@types/react": "^17.0.43",
-    "@types/react-dom": "^17.0.14",
-    "notion-types": "^6.15.6",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "@types/node": "^18.16.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "notion-types": "^6.16.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-notion-x": "^6.16.0",
-    "react-scripts": "5.0.0",
-    "typescript": "^4.6.3"
+    "react-scripts": "^5.0.1",
+    "typescript": "^5.2.2"
   },
   "eslintConfig": {
     "extends": [

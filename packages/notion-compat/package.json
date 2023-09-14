@@ -14,7 +14,7 @@
     "build"
   ],
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "scripts": {
     "build": "tsup",
@@ -24,14 +24,14 @@
   "dependencies": {
     "notion-types": "^6.16.0",
     "notion-utils": "^6.16.0",
-    "p-queue": "^7.2.0"
+    "p-queue": "^7.4.1"
   },
   "devDependencies": {
-    "@notionhq/client": "^1.0.4",
+    "@notionhq/client": "^2.2.13",
     "notion-client": "^6.16.0"
   },
   "peerDependencies": {
-    "@notionhq/client": "^1.0.4"
+    "@notionhq/client": "^2.2.13"
   },
   "ava": {
     "snapshotDir": ".snapshots",

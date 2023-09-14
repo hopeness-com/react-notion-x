@@ -15,7 +15,7 @@
     "src/styles.css"
   ],
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "scripts": {
     "build": "tsup",
@@ -24,31 +24,31 @@
   "dependencies": {
     "@fisch0920/medium-zoom": "^1.0.7",
     "@matejmazur/react-katex": "^3.1.3",
-    "katex": "^0.15.3",
+    "katex": "^0.16.8",
     "notion-types": "^6.16.0",
     "notion-utils": "^6.16.0",
-    "prismjs": "^1.27.0",
-    "react-fast-compare": "^3.2.0",
-    "react-hotkeys-hook": "^3.0.3",
-    "react-image": "^4.0.3",
+    "prismjs": "^1.29.0",
+    "react-fast-compare": "^3.2.2",
+    "react-hotkeys-hook": "^4.4.1",
+    "react-image": "^4.1.0",
     "react-lazy-images": "^1.1.0",
-    "react-modal": "^3.14.3",
-    "react-pdf": "^5.7.1",
-    "react-use": "^17.3.1"
+    "react-modal": "^3.16.1",
+    "react-pdf": "^7.3.3",
+    "react-use": "^17.4.0"
   },
   "devDependencies": {
-    "@types/lodash.throttle": "^4.1.6",
-    "@types/node": "^16.11.2",
-    "@types/react": "^17.0.31",
+    "@types/lodash.throttle": "^4.1.7",
+    "@types/node": "^18.16.0",
+    "@types/react": "^18.2.0",
     "clipboard-copy": "^4.0.1",
-    "date-fns": "^2.28.0",
+    "date-fns": "^2.30.0",
     "format-number": "^3.0.0",
     "lodash.throttle": "^4.1.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "peerDependencies": {
-    "react": ">=16",
-    "react-dom": ">=16"
+    "react": ">=18",
+    "react-dom": ">=18"
   }
 }
