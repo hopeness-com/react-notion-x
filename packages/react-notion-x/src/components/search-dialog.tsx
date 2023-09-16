@@ -11,6 +11,8 @@ import { SearchIcon } from '../icons/search-icon'
 import { cs } from '../utils'
 import { PageTitle } from './page-title'
 
+const NotionContextProviderComponent = NotionContextProvider as any
+
 export class SearchDialog extends Component<{
   isOpen: boolean
   rootBlockId: string
@@ -89,7 +91,7 @@ export class SearchDialog extends Component<{
                 {hasQuery && searchResult && (
                   <>
                     {searchResult.results.length ? (
-                      <NotionContextProvider
+                      <NotionContextProviderComponent
                         {...ctx}
                         recordMap={searchResult.recordMap}
                       >
@@ -129,7 +131,7 @@ export class SearchDialog extends Component<{
                             {searchResult.total === 1 ? ' result' : ' results'}
                           </div>
                         </footer>
-                      </NotionContextProvider>
+                      </NotionContextProviderComponent>
                     ) : (
                       <div className='noResultsPane'>
                         <div className='noResults'>No results</div>

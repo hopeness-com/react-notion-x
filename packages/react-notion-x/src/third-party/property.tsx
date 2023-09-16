@@ -86,19 +86,25 @@ export const PropertyImpl: FC<IPropertyProps> = (props) => {
             properties: block?.properties
           })
 
-          if (isNaN(content as number)) {
-            // console.log('NaN', schema.formula)
-          }
-
           if (content instanceof Date) {
             content = format(content, 'MMM d, YYY hh:mm aa')
+          } else if (typeof content === 'number') {
+            if (isNaN(content)) {
+              content = 'NaN' // 将 NaN 转为字符串
+            } else {
+              content = content.toString() // 将数字转为字符串
+            }
+          } else if (content === null || content === undefined) {
+            content = '' // 确保不返回 null 或 undefined
+          } else if (typeof content !== 'string') {
+            content = JSON.stringify(content) // 将其他非字符串类型转为字符串
           }
         } catch (err) {
           // console.log('error evaluating formula', schema.formula, err)
-          content = null
+          content = 'Error evaluating formula' // 如果出现错误，返回一个错误消息
         }
 
-        return content
+        return <span>{content}</span> // 使用 span 包裹 content，确保返回一个有效的 ReactNode
       },
     [block?.properties, collection?.schema, schema]
   )

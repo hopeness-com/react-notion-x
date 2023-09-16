@@ -60,6 +60,7 @@ export interface PartialNotionContext {
   searchNotion?: SearchNotionFn
   isShowingSearch?: boolean
   onHideSearch?: () => void
+  children?: ReactNode
 
   rootPageId?: string
   rootDomain?: string

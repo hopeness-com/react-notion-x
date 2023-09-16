@@ -9,6 +9,8 @@ import { cs } from '../utils'
 /**
  * Progressive, lazy images modeled after Medium's LQIP technique.
  */
+
+const LazyImageFullComponent = LazyImageFull as any
 export const LazyImage: FC<{
   src?: string
   alt?: string
@@ -84,7 +86,7 @@ export const LazyImage: FC<{
     }
 
     return (
-      <LazyImageFull src={src} {...rest} experimentalDecode={true}>
+      <LazyImageFullComponent src={src} {...rest} experimentalDecode={true}>
         {({ imageState, ref }) => {
           const isLoaded = imageState === ImageState.LoadSuccess
           const wrapperStyle: CSSProperties = {
@@ -134,7 +136,7 @@ export const LazyImage: FC<{
             </div>
           )
         }}
-      </LazyImageFull>
+      </LazyImageFullComponent>
     )
   } else {
     // TODO: GracefulImage doesn't seem to support refs, but we'd like to prevent
