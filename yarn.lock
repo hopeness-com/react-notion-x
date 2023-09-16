@@ -9588,6 +9588,41 @@ normalize-url@^8.0.0:
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-8.0.0.tgz#593dbd284f743e8dcf6a5ddf8fadff149c82701a"
   integrity sha512-uVFpKhj5MheNBJRTiMZ9pE/7hD1QTeEvugSJW/OmLzAp78PB5O6adfMNTvmfKhXBkvCzC+rqifWcVYpGFwTjnw==
 
+"notion-client@npm:@hopeness.com/notion-client@^6.16.3":
+  version "6.16.3"
+  resolved "https://registry.yarnpkg.com/@hopeness.com/notion-client/-/notion-client-6.16.3.tgz#a846db7f1366adddcc8e34c70ed8ecfd913b2e21"
+  integrity sha512-J5mGy+TiOhPQXWmgoyrVgtSR1m30Cd3kV2jyLs2wYMvXjgR4lZlJsdn+rz3EwjcEg/ayBo+1Ig8e36v19PodvA==
+  dependencies:
+    got "^13.0.0"
+    notion-types "npm:@hopeness.com/notion-types@^6.16.3"
+    notion-utils "npm:@hopeness.com/notion-utils@^6.16.3"
+    p-map "^6.0.0"
+
+"notion-compat@npm:@hopeness.com/notion-compat@^6.16.3":
+  version "6.16.3"
+  resolved "https://registry.yarnpkg.com/@hopeness.com/notion-compat/-/notion-compat-6.16.3.tgz#ccd4a179b1d6f2a4c2ece726be968a2275e76225"
+  integrity sha512-UmzKWds3o+QDL2AeIJP4cUQT9B0nyWex+/+4sPVBwijxRKd60RM8V07LA6KpBzpaX/BbYJDpForwn0EemqcRTw==
+  dependencies:
+    notion-types "npm:@hopeness.com/notion-types@^6.16.3"
+    notion-utils "npm:@hopeness.com/notion-utils@^6.16.3"
+    p-queue "^7.4.1"
+
+"notion-types@npm:@hopeness.com/notion-types@^6.16.3":
+  version "6.16.3"
+  resolved "https://registry.yarnpkg.com/@hopeness.com/notion-types/-/notion-types-6.16.3.tgz#dad674c5ad954aeba7814f73d67563224269d4cd"
+  integrity sha512-KsGxyGezjnIpgZ3mxhs9/3xhgXNnkY5Iurwq7l0h8AmB7haJi3Am1WJGps093B3O3iHi22zlZuMa1sDXod8m9A==
+
+"notion-utils@npm:@hopeness.com/notion-utils@^6.16.3":
+  version "6.16.3"
+  resolved "https://registry.yarnpkg.com/@hopeness.com/notion-utils/-/notion-utils-6.16.3.tgz#c991148597e15f98b65486b41d1efce3fbc534e6"
+  integrity sha512-r0Tjf4BWh04cNXcDnnWnAN+U0EZEodZgazWHAzFL9HoDOUDeFkMnPqm9AjsQ7UusLR0PJXnJYyiDCXm0Z/BKcA==
+  dependencies:
+    is-url-superb "^6.1.0"
+    mem "^9.0.2"
+    normalize-url "^8.0.0"
+    notion-types "npm:@hopeness.com/notion-types@^6.16.3"
+    p-queue "^7.4.1"
+
 npm-bundled@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.1.2.tgz#944c78789bd739035b70baa2ca5cc32b8d860bc1"
@@ -11341,6 +11376,25 @@ react-modal@^3.16.1:
     prop-types "^15.7.2"
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
+
+"react-notion-x@npm:@hopeness.com/react-notion-x@^6.16.3":
+  version "6.16.3"
+  resolved "https://registry.yarnpkg.com/@hopeness.com/react-notion-x/-/react-notion-x-6.16.3.tgz#44c80e802f85b0417c4fc8680f16e4b8cc093ab6"
+  integrity sha512-e/BhdwMRG8CoWjzVjaTLNbiFblcgGV8TidbJKBwY7hskJUTefZxQiogPrzmcu4V9VQ4bQTaU1Qmx4uU9NtMKJw==
+  dependencies:
+    "@fisch0920/medium-zoom" "^1.0.7"
+    "@matejmazur/react-katex" "^3.1.3"
+    katex "^0.16.8"
+    notion-types "npm:@hopeness.com/notion-types@^6.16.3"
+    notion-utils "npm:@hopeness.com/notion-utils@^6.16.3"
+    prismjs "^1.29.0"
+    react-fast-compare "^3.2.2"
+    react-hotkeys-hook "^4.4.1"
+    react-image "^4.1.0"
+    react-lazy-images "^1.1.0"
+    react-modal "^3.16.1"
+    react-pdf "^7.3.3"
+    react-use "^17.4.0"
 
 react-pdf@^7.3.3:
   version "7.3.3"

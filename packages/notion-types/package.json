@@ -1,7 +1,6 @@
 {
   "name": "@hopeness.com/notion-types",
-  "private": false,
-  "version": "6.16.1",
+  "version": "6.16.3",
   "type": "module",
   "description": "TypeScript types for core Notion data structures.",
   "repository": "hopeness-com/react-notion-x",
