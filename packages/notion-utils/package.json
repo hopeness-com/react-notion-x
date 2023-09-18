@@ -1,6 +1,6 @@
 {
   "name": "@hopeness.com/notion-utils",
-  "version": "6.16.3",
+  "version": "6.16.4",
   "type": "module",
   "description": "Useful utilities for working with Notion data. Isomorphic.",
   "repository": "hopeness-com/react-notion-x",
@@ -31,7 +31,7 @@
     "is-url-superb": "^6.1.0",
     "mem": "^9.0.2",
     "normalize-url": "^8.0.0",
-    "notion-types": "npm:@hopeness.com/notion-types@^6.16.3",
+    "notion-types": "npm:@hopeness.com/notion-types@^6.16.4",
     "p-queue": "^7.4.1"
   },
   "ava": {

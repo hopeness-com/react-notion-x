@@ -1,6 +1,6 @@
 {
   "name": "@hopeness.com/notion-compat",
-  "version": "6.16.3",
+  "version": "6.16.4",
   "type": "module",
   "description": "Compatibility layer between the official Notion API and unofficial private API.",
   "repository": "hopeness-com/react-notion-x",
@@ -22,13 +22,13 @@
     "test": "ava"
   },
   "dependencies": {
-    "notion-types": "npm:@hopeness.com/notion-types@^6.16.3",
-    "notion-utils": "npm:@hopeness.com/notion-utils@^6.16.3",
+    "notion-types": "npm:@hopeness.com/notion-types@^6.16.4",
+    "notion-utils": "npm:@hopeness.com/notion-utils@^6.16.4",
     "p-queue": "^7.4.1"
   },
   "devDependencies": {
     "@notionhq/client": "^2.2.13",
-    "notion-client": "npm:@hopeness.com/notion-client@^6.16.3"
+    "notion-client": "npm:@hopeness.com/notion-client@^6.16.4"
   },
   "peerDependencies": {
     "@notionhq/client": "^2.2.13"

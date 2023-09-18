@@ -3,7 +3,7 @@ import * as types from 'notion-types'
 import { getBlockIcon } from './get-block-icon'
 import { isUrl } from './is-url'
 
-/**
+/**getBlockIcon
  * Gets URLs of all images contained on the given page.
  */
 export const getPageImageUrls = (

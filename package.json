@@ -5,7 +5,7 @@
   "repository": "hopeness-com/react-notion-x",
   "author": "Travis Fischer <travis@transitivebullsh.it>",
   "license": "MIT",
-  "version": "6.16.3",
+  "version": "6.16.4",
   "engines": {
     "node": ">=18"
   },
