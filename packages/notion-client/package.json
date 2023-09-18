@@ -1,6 +1,6 @@
 {
   "name": "@hopeness.com/notion-client",
-  "version": "6.16.3",
+  "version": "6.16.4",
   "type": "module",
   "description": "Robust TypeScript client for the unofficial Notion API.",
   "repository": "hopeness-com/react-notion-x",
@@ -23,8 +23,8 @@
   },
   "dependencies": {
     "got": "^13.0.0",
-    "notion-types": "npm:@hopeness.com/notion-types@^6.16.3",
-    "notion-utils": "npm:@hopeness.com/notion-utils@^6.16.3",
+    "notion-types": "npm:@hopeness.com/notion-types@^6.16.4",
+    "notion-utils": "npm:@hopeness.com/notion-utils@^6.16.4",
     "p-map": "^6.0.0"
   },
   "ava": {

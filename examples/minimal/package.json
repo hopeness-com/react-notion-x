@@ -1,6 +1,6 @@
 {
   "name": "notion-x-example-minimal",
-  "version": "6.16.3",
+  "version": "6.16.4",
   "private": true,
   "type": "commonjs",
   "scripts": {
@@ -11,11 +11,11 @@
   },
   "dependencies": {
     "next": "^13.4.19",
-    "notion-client": "npm:@hopeness.com/notion-client@^6.16.3",
-    "notion-utils": "npm:@hopeness.com/notion-utils@^6.16.3",
+    "notion-client": "npm:@hopeness.com/notion-client@^6.16.4",
+    "notion-utils": "npm:@hopeness.com/notion-utils@^6.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-notion-x": "npm:@hopeness.com/react-notion-x@^6.16.3"
+    "react-notion-x": "npm:@hopeness.com/react-notion-x@^6.16.4"
   },
   "devDependencies": {
     "@types/node": "^18.16.0",
